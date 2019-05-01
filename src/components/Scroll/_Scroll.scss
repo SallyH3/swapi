@@ -1,0 +1,14 @@
+.scroll-container {
+  // display: flex;
+  font-family: $scroll-font;
+  font-size: 1.5rem;
+  font-weight: 800;
+  justify-content: center;
+  letter-spacing: .1rem;
+  position: relative;
+  text-align: center;
+}
+
+p {
+  color: $scroll-color;
+}
