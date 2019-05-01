@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     const {title, year, crawl} = this.state.currentFilm;
   return (
     <div className="App">
