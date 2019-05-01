@@ -11,6 +11,7 @@ export default class Controls extends Component {
     return (
       <section className='button-container'>
     {/* put people, planets, and vehicles buttons here */}
+    {/* add button for favorites */}
       </section>
     )
   }

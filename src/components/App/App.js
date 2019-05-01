@@ -39,15 +39,15 @@ class App extends Component {
 
   render() {
     const {title, year, crawl} = this.state.currentFilm;
-  return (
-    <div className="App">
-      <Header />
-    <Scroll
-      title={title}
-      year={year} 
-      crawl={crawl} 
-    />
-    </div>
+    return (
+      <div className="App">
+        <Header />
+        <Scroll
+          title={title}
+          year={year} 
+          crawl={crawl} 
+        />
+      </div>
     );
   }
 }
