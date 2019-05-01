@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './_App.scss';
 import Header from '../Header/Header';
+import Controls from '../Controls/Controls';
 import Scroll from '../Scroll/Scroll';
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Controls />
         <Scroll
           title={title}
           year={year} 
