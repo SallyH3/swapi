@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Controls extends Component {
-  constructor() {
-    super();
-  }
-  render() {
+const Controls = () => {
     return (
       <section className='button-container'>
         <input 
@@ -29,4 +25,5 @@ export default class Controls extends Component {
       </section>
     )
   }
-}
+
+  export default Controls;

@@ -1,0 +1,14 @@
+.fave-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fave-btn {
+  background-color: $fave-btn-color;
+  border-radius: .1rem;
+  color: $fave-text-color;
+  font-size: .9rem;
+  margin: .7rem;
+  padding: .5rem;
+  width: 9rem;
+}

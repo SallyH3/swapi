@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './_App.scss';
+import Favorites from '../Favorites/Favorites';
 import Header from '../Header/Header';
 import Controls from '../Controls/Controls';
 import Scroll from '../Scroll/Scroll';
@@ -12,7 +13,8 @@ class App extends Component {
         title: '',
         year: 0,
         crawl: ''
-      }
+      },
+      isLoading: false
     }
   }
 
@@ -42,6 +44,7 @@ class App extends Component {
     const {title, year, crawl} = this.state.currentFilm;
     return (
       <div className="App">
+        <Favorites />
         <Header />
         <Controls />
         <Scroll
