@@ -1,3 +1,17 @@
-.people {
-  color: #FFF;
+.people-info {
+  color: $people-text;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.people-name {
+  border: .1rem solid white;
+  font-family: $people-name-font;
+  height: 30rem;
+  letter-spacing: .1rem;
+  margin: 2rem;
+  padding: 1rem;
+  width: 12rem;
 }

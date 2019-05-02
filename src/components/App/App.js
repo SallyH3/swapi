@@ -53,8 +53,9 @@ class App extends Component {
 
   //need to figure out how to get people correctly, this isnt working below...
 
-  displayPeople = () => {
-    const url = `https://swapi.co/api/people/`;
+  displayPeople = (e) => {
+    const value = e.target.value
+    const url = `https://swapi.co/api/${value}`;
     fetch(url)
       .then(response => response.json())
       .then(people => this.getHomeworld(people))
@@ -71,13 +72,10 @@ class App extends Component {
         <Favorites />
         <Header />
         <Controls displayPeople = {this.displayPeople}/>
-        <Scroll
+        { this.state.people.length ? <Card people={this.state.people}/> : <Scroll 
           title={title}
           year={year} 
-          crawl={crawl} 
-        />
-        { this.state.people.length ? <Card people={this.state.people}/> : <Scroll /> } 
-        {/* <Card /> */}
+          crawl={crawl} /> } 
       </div>
     );
   }
