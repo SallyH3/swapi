@@ -1,25 +1,25 @@
 import React from 'react';
 
-const Controls = () => {
+const Controls = (props) => {
     return (
       <section className='button-container'>
         <input 
-          value='People'
+          value='people'
           type='submit'
           className='btn people'
-          // onClick= {this.displayPeople}
+          onClick= {props.displayPeople}
           />
         <input 
-          value='Planets'
+          value='planets'
           type='submit'
           className='btn planets'
-          // onClick={this.displayPeople}
+          onClick={props.displayPeople}
           />
         <input 
-          value='Vehicles'
+          value='vehicles'
           type='submit'
           className='btn vehicles'
-          // onClick={this.displayVehicles}
+          onClick={props.displayPeople}
           />
     {/* add button for favorites */}
       </section>

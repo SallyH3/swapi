@@ -1,0 +1,45 @@
+.people-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.people-display-info {
+  border: .1rem solid $card-border-color;
+  border-radius: .3rem;
+  color: $people-text;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  flex-wrap: wrap;
+  margin: 1rem;
+  padding: 1rem;
+  width: 10.8rem;
+  &:hover {
+    box-shadow: .3rem .3rem .3rem $card-shadow;
+  }
+}
+
+.people-name {
+  font-size: 1.8rem;
+  margin: .7rem;
+  padding: 1rem;
+}
+
+.people-name, 
+.people-species,
+.homeworld,
+.population {
+  font-family: $people-name-font;
+  letter-spacing: .1rem;
+}
+
+.people-species {
+  font-size: 1.3rem;
+  margin-top: 0rem;
+}
+
+.homeworld {
+  font-size: 1rem;
+  margin-top: 0rem;
+}

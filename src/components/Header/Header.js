@@ -1,5 +1,4 @@
 import React from 'react';
-import Crawl from 'react-star-wars-crawl';
 
 export default function Header () {
   return (
