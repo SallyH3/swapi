@@ -11,7 +11,7 @@ class App extends Component {
     this.state={
       currentFilm: {
         title: '',
-        year: 0,
+        year: '',
         crawl: ''
       },
       isLoading: false

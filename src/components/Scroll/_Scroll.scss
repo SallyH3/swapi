@@ -1,14 +1,34 @@
 .scroll-container {
-  // display: flex;
+  color: $scroll-color;
+  display: flex;
   font-family: $scroll-font;
-  font-size: 1.5rem;
-  font-weight: 800;
+  height: 47rem;
   justify-content: center;
-  letter-spacing: .1rem;
-  position: relative;
-  text-align: center;
+  margin-top: 1.2rem;
+  perspective: 12.3rem;
 }
 
-p {
-  color: $scroll-color;
+.crawl {
+  position: relative;
+  transform-origin: 50% 100%;
+  animation: scroll 90s infinite;
+}
+
+.text {
+  font-size: 3.5rem;
+}
+
+.scroll-title {
+  font-size: 5.5rem;
+}
+
+@keyframes scroll {
+  0% {
+      top: 0;
+      transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+      top: -6000px;
+      transform: rotateX(25deg) translateZ(-2500px);
+  }
 }
