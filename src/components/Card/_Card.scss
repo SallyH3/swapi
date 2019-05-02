@@ -13,7 +13,7 @@
   flex-wrap: wrap;
   margin: 1rem;
   padding: 1rem;
-  width: 12.2rem;
+  width: 10.8rem;
 }
 
 .people-name {
@@ -23,12 +23,19 @@
 }
 
 .people-name, 
-.people-species {
+.people-species,
+.homeworld,
+.population {
   font-family: $people-name-font;
   letter-spacing: .1rem;
 }
 
 .people-species {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  margin-top: 0rem;
+}
+
+.homeworld {
+  font-size: 1rem;
   margin-top: 0rem;
 }

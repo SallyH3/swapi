@@ -5,7 +5,9 @@ const Card = (props) => {
     return (
     <section className = 'people-display-info'>
       <p className='people-name'>{person.name}</p>
-      <p className='people-species'>{person.species}</p>
+      <p className='people-species'>Species: {person.species}</p>
+      <p className='homeworld'>Homeworld: {person.homeworld}</p>
+      <p className='population'>Population: {person.population}</p>
     </section>
     )
   })

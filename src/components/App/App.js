@@ -53,17 +53,22 @@ class App extends Component {
     return Promise.all(species)
   }
 
-  // getHomeworld = (people) => {
-  //   //when console.logging, it doesnt know what people is...says cannot read results of undefined, need to fix
-  //   const getHomeworld = people.results.map(person => {
-  //     console.log(person)
-  //     return fetch(person.homeworld)
-  //     .then(result => ({...person, homeworld: result.name, population: result.population}))
-  //   })
-  //   return Promise.all(getHomeworld)
-  // }
-
-  //need to figure out how to get people correctly, this isnt working below...
+  getHomeworld = (people) => {
+    const getHomeworld = people.map(person => {
+      return fetch(person.homeworld)
+      .then(response => response.json())
+      .then(result => {
+        const finalPerson = 
+        {...person, 
+          homeworld: 
+          result.name, 
+          population: result.population
+      }
+      return finalPerson;
+    });
+    })
+    return Promise.all(getHomeworld)
+  }
 
   displayPeople = (e) => {
     const value = e.target.value
@@ -71,7 +76,7 @@ class App extends Component {
     fetch(url)
       .then(response => response.json())
       .then(people => this.getSpecies(people.results))
-      // .then(people => this.getHomeworld(people))
+      .then(people => this.getHomeworld(people))
       // .then(people => this.getPopulation)
       .then(people => this.setState({people: people}))
       .catch(error => console.log(error))
