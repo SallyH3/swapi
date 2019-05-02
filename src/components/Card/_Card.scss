@@ -5,15 +5,19 @@
 }
 
 .people-display-info {
-  border: .1rem solid white;
+  border: .1rem solid $card-border-color;
+  border-radius: .3rem;
   color: $people-text;
   display: flex;
   flex-direction: column;
-  height: 27rem;
+  height: 20rem;
   flex-wrap: wrap;
   margin: 1rem;
   padding: 1rem;
   width: 10.8rem;
+  &:hover {
+    box-shadow: .3rem .3rem .3rem $card-shadow;
+  }
 }
 
 .people-name {
