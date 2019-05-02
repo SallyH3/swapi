@@ -1,17 +1,34 @@
 .people-info {
-  color: $people-text;
   display: flex;
   flex-wrap: wrap;
   margin: 1rem;
+}
+
+.people-display-info {
+  border: .1rem solid white;
+  color: $people-text;
+  display: flex;
+  flex-direction: column;
+  height: 27rem;
+  flex-wrap: wrap;
+  margin: 1rem;
   padding: 1rem;
+  width: 12.2rem;
 }
 
 .people-name {
-  border: .1rem solid white;
-  font-family: $people-name-font;
-  height: 30rem;
-  letter-spacing: .1rem;
-  margin: 2rem;
+  font-size: 1.8rem;
+  margin: .7rem;
   padding: 1rem;
-  width: 12rem;
+}
+
+.people-name, 
+.people-species {
+  font-family: $people-name-font;
+  letter-spacing: .1rem;
+}
+
+.people-species {
+  font-size: 1.2rem;
+  margin-top: 0rem;
 }

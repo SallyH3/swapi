@@ -41,15 +41,27 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  getHomeworld = (people) => {
-    //when console.logging, it doesnt know what people is...says cannot read results of undefined, need to fix
-    const getHomeworld = people.results.map(person => {
-      console.log(person)
-      return fetch(person.homeworld)
-      .then(result => ({...person, homeworld: result.name, population: result.population}))
+  getSpecies = (data) => {
+    const species = data.map(person => {
+      return fetch(person.species)
+      .then(response => response.json())
+      .then(result => {
+        const newPerson = {...person, species: result.name}
+        return newPerson
+      })
     })
-    return Promise.all(getHomeworld)
+    return Promise.all(species)
   }
+
+  // getHomeworld = (people) => {
+  //   //when console.logging, it doesnt know what people is...says cannot read results of undefined, need to fix
+  //   const getHomeworld = people.results.map(person => {
+  //     console.log(person)
+  //     return fetch(person.homeworld)
+  //     .then(result => ({...person, homeworld: result.name, population: result.population}))
+  //   })
+  //   return Promise.all(getHomeworld)
+  // }
 
   //need to figure out how to get people correctly, this isnt working below...
 
@@ -58,8 +70,8 @@ class App extends Component {
     const url = `https://swapi.co/api/${value}`;
     fetch(url)
       .then(response => response.json())
-      .then(people => this.getHomeworld(people))
-      // .then(people => this.getSpecies)
+      .then(people => this.getSpecies(people.results))
+      // .then(people => this.getHomeworld(people))
       // .then(people => this.getPopulation)
       .then(people => this.setState({people: people}))
       .catch(error => console.log(error))
