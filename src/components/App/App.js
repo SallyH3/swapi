@@ -44,6 +44,7 @@ class App extends Component {
   getHomeworld = (people) => {
     //when console.logging, it doesnt know what people is...says cannot read results of undefined, need to fix
     const getHomeworld = people.results.map(person => {
+      console.log(person)
       return fetch(person.homeworld)
       .then(result => ({...person, homeworld: result.name, population: result.population}))
     })
@@ -66,17 +67,17 @@ class App extends Component {
   render() {
     const {title, year, crawl} = this.state.currentFilm;
     return (
-      <div className="App">
+      <div className='App'>
         <Favorites />
         <Header />
-        {/* adding displayPeople to controls below...fn still needs to be fixed */}
         <Controls displayPeople = {this.displayPeople}/>
         <Scroll
           title={title}
           year={year} 
           crawl={crawl} 
         />
-        <Card />
+        { this.state.people.length ? <Card people={this.state.people}/> : <Scroll /> } 
+        {/* <Card /> */}
       </div>
     );
   }

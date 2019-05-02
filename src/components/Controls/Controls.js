@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Controls = () => {
+const Controls = (props) => {
     return (
       <section className='button-container'>
         <input 
           value='People'
           type='submit'
           className='btn people'
-          // onClick= {this.displayPeople}
+          onClick= {props.displayPeople}
           />
         <input 
           value='Planets'
