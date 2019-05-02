@@ -64,7 +64,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.displayPeople())
     const {title, year, crawl} = this.state.currentFilm;
     return (
       <div className="App">
