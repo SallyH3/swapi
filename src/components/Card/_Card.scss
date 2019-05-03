@@ -1,4 +1,4 @@
-.people-info {
+.people-info-container {
   display: flex;
   flex-wrap: wrap;
   margin: 1rem;
@@ -27,14 +27,14 @@
 }
 
 .people-name, 
-.people-species,
+.species,
 .homeworld,
 .population {
   font-family: $people-name-font;
   letter-spacing: .1rem;
 }
 
-.people-species {
+.species {
   font-size: 1.3rem;
   margin-top: 0rem;
 }

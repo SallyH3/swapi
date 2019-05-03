@@ -4,11 +4,11 @@
 // const CardContainer = (props) => {
 //   const peopleInfo = props.people.map(person => {
 //     return <Card 
-//       name={person.name} />
+//       name={ person.name } />
 //   })
 // return (
 //   <section className = 'container'>
-//     <article className = 'people'>{peopleInfo}</article>
+//     <article className = 'people'>{ peopleInfo }</article>
 //   </section>
 // )
 // }

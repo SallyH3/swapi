@@ -4,10 +4,10 @@ const Favorites = () => {
  return (
   <section className='fave-container'>
     <input 
-      value='View Favorites 0'
+      value='view favorites 0'
       type='submit'
       className='fave-btn'
-      // onClick={this.displayFavorites}
+      // onClick={ this.displayFavorites }
       />
   </section>
  )
