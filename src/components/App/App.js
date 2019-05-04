@@ -74,11 +74,12 @@ class App extends Component {
   displayPeople = (e) => {
     const value = e.target.value
     const url = `https://swapi.co/api/${ value }`;
+    this.setState({isLoading: true})
     fetch(url)
       .then(response => response.json())
       .then(people => this.getSpecies(people.results))
       .then(people => this.getHomeworld(people))
-      .then(people => this.setState({ people: people }))
+      .then(people => this.setState({ people: people, isLoading: false}))
       .catch(error => console.log(error))
   }
 
@@ -88,7 +89,9 @@ class App extends Component {
       <div className='App'>
         <Favorites />
         <Header />
-        <Controls displayPeople = {this.displayPeople}/>
+        <Controls displayPeople = {this.displayPeople}
+                  people={this.state.people}
+        />
         { this.state.people.length ? 
           <Card people={ this.state.people } /> : 
           <Scroll 
