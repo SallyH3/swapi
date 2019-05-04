@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
 
@@ -7,7 +6,6 @@ describe('App', () => {
   describe('displayPeople', () => {
     let mockPeople;
     let wrapper;
-    //mock fetch
     beforeEach(() => {
       mockPeople = [
         {"name": "Luke Skywalker", "population": "200000"},
@@ -24,18 +22,25 @@ describe('App', () => {
 
     it ('calls fetch with correct url', () => {
       //setup
-      const mockUrl = 'https://swapi.co/api/people/';
+      const expectedUrl = 'https://swapi.co/api/people/';
 
       //execution
       wrapper.instance().displayPeople();
 
       //expectation
 
-      expect(fetch).toHaveBeenCalledWith(mockUrl)
+      expect(fetch).toHaveBeenCalledWith(expectedUrl)
       
     });
 
-    it.skip ('resets state on successful request', () => {
+    it('resets state on successful request', () => {
+      //execution
+      wrapper.setState({people: mockPeople})
+      wrapper.instance().displayPeople()
+
+      //expectation
+
+      expect(wrapper.state('people')).toEqual(mockPeople)
 
     });
 
