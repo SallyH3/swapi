@@ -16,7 +16,8 @@ class App extends Component {
         crawl: ''
       },
       people: [],
-      isLoading: false
+      isLoading: false,
+      errorStatus: ''
     }
   }
   
@@ -39,7 +40,9 @@ class App extends Component {
       .then(response => response.json())
       .then(film => this.getCrawlFilmInfo(film))
       .then(currentFilm => this.setState({ currentFilm }))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({
+        errorStatus: error.message
+      }))
   }
 
   getSpecies = (data) => {
@@ -73,14 +76,15 @@ class App extends Component {
 
   displayPeople = () => {
     const url = `https://swapi.co/api/people/`;
-    fetch(url)
+    return fetch(url)
     .then(response => response.json())
     .then(people => this.getSpecies(people.results))
     .then(people => this.getHomeworld(people))
     .then(people => this.setState({ people: people }))
-    .catch(error => console.log(error))
+    .catch(error => this.setState({
+      errorStatus: error.message
+    }))
   }
-  
 
   render() {
     const { title, year, crawl } = this.state.currentFilm;
