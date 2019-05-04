@@ -71,17 +71,16 @@ class App extends Component {
     return Promise.all(getHomeworld)
   }
 
-  displayPeople = (e) => {
-    const value = e.target.value
-    const url = `https://swapi.co/api/${ value }`;
-    this.setState({isLoading: true})
+  displayPeople = () => {
+    const url = `https://swapi.co/api/people/`;
     fetch(url)
-      .then(response => response.json())
-      .then(people => this.getSpecies(people.results))
-      .then(people => this.getHomeworld(people))
-      .then(people => this.setState({ people: people, isLoading: false}))
-      .catch(error => console.log(error))
+    .then(response => response.json())
+    .then(people => this.getSpecies(people.results))
+    .then(people => this.getHomeworld(people))
+    .then(people => this.setState({ people: people }))
+    .catch(error => console.log(error))
   }
+  
 
   render() {
     const { title, year, crawl } = this.state.currentFilm;
