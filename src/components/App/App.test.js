@@ -22,6 +22,19 @@ describe('App', () => {
 
     it('should match snapshot', () => {
       expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should have default state', () => {
+      expect(wrapper.state()).toEqual({
+        currentFilm: {
+          title: '',
+          year: '',
+          crawl: ''
+        },
+        people: [],
+        isLoading: false,
+        errorStatus: ''
+      })
     })
 
     it('calls fetch with correct url', () => {
