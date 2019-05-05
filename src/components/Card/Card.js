@@ -9,6 +9,7 @@ const Card = ({ people }) => {
       <p className='species'>Species: { person.species }</p>
       <p className='homeworld'>Homeworld: { person.homeworld }</p>
       <p className='population'>Population: { person.population }</p>
+      <button className='fave'>add to favorites</button>
     </section>
     )
   })

@@ -22,6 +22,7 @@
 
 .people-name {
   font-size: 1.8rem;
+  color: $people-name-color;
   margin: .7rem;
   padding: 1rem;
 }
@@ -42,4 +43,22 @@
 .homeworld {
   font-size: 1rem;
   margin-top: 0rem;
+}
+
+.fave {
+  background-color: transparent;
+  border: .1rem solid $card-fave-color;
+  border-radius: .2rem;
+  color: $btn-fave-text;
+  font-family: $card-fave-font;
+  font-size: 1rem;
+  height: 2rem;
+  letter-spacing: .1rem;
+  padding: .3rem;
+  width: 8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: $btn-fave-hover;
+  }
 }

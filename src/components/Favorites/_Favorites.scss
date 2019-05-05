@@ -4,7 +4,8 @@
 }
 
 .fave-btn {
-  background-color: $fave-btn-color;
+  background-color: transparent;
+  border: .1rem solid $btn-fave-border-color;
   border-radius: .1rem;
   color: $fave-text-color;
   cursor: pointer;
@@ -14,4 +15,7 @@
   margin: .7rem;
   padding: .5rem;
   width: 9rem;
+  &:hover {
+    background-color: $fave-btn-color;
+  }
 }
