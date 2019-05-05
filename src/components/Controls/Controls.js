@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Controls = ({ displayPeople, people }) => {
     return (
@@ -23,6 +24,11 @@ const Controls = ({ displayPeople, people }) => {
           />
       </section>
     )
+  }
+
+  Controls.propTypes = {
+    displayPeople: PropTypes.func,
+    people: PropTypes.array
   }
 
   export default Controls;
