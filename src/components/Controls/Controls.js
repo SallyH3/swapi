@@ -1,10 +1,6 @@
 import React from 'react';
 
 const Controls = ({ displayPeople, people }) => {
-  // let result;
-  // if(people.length === 0) {
-  //   result = <p className='people-loader'>Loading...</p>
-  // } 
     return (
       <section className='button-container'>
         <input 
@@ -25,7 +21,6 @@ const Controls = ({ displayPeople, people }) => {
           className='btn vehicles'
           // onClick={ displayVehicles }
           />
-          {/* {result} */}
       </section>
     )
   }

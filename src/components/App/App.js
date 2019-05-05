@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './_App.scss';
 import Favorites from '../Favorites/Favorites';
 import Header from '../Header/Header';
@@ -16,7 +17,7 @@ class App extends Component {
         crawl: ''
       },
       people: [],
-      isLoading: false,
+      isLoading: true,
       errorStatus: ''
     }
   }
@@ -34,12 +35,13 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({isLoading: true})
     const randomFilm = this.getRandomFilm();
     const url = `https://swapi.co/api/films/${ randomFilm }`;
-    fetch(url)
+    return fetch(url)
       .then(response => response.json())
       .then(film => this.getCrawlFilmInfo(film))
-      .then(currentFilm => this.setState({ currentFilm }))
+      .then(currentFilm => this.setState({ currentFilm, isLoading: false }))
       .catch(error => this.setState({
         errorStatus: error.message
       }))
@@ -75,22 +77,28 @@ class App extends Component {
   }
 
   displayPeople = () => {
+    this.setState({ isLoading: true })
     const url = `https://swapi.co/api/people/`;
     return fetch(url)
     .then(response => response.json())
     .then(people => this.getSpecies(people.results))
     .then(people => this.getHomeworld(people))
-    .then(people => this.setState({ people: people }))
+    .then(people => this.setState({ people: people, isLoading: false }))
     .catch(error => this.setState({
       errorStatus: error.message
     }))
   }
 
-  render() {
+  render() { 
+    let result;
+    if(this.state.isLoading === true) {
+      result = <p className='people-loader'>Loading...</p>
+    } 
     const { title, year, crawl } = this.state.currentFilm;
     return (
       <div className='App'>
         <Favorites />
+        {result}
         <Header />
         <Controls displayPeople = {this.displayPeople}
                   people={this.state.people}
