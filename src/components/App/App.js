@@ -114,4 +114,10 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  displayPeople: PropTypes.func,
+  people: PropTypes.array,
+  currentFilm: PropTypes.object
+}
+
 export default App;
