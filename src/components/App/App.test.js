@@ -32,7 +32,7 @@ describe('App', () => {
           crawl: ''
         },
         people: [],
-        isLoading: false,
+        isLoading: true,
         errorStatus: ''
       })
     })
@@ -79,30 +79,67 @@ describe('App', () => {
   });
   describe('getHomeWorld', () => {
     let wrapper;
+    let mockPeople;
+    let mockData;
     beforeEach(() => {
-      const mockPeople = [
-        {"name": "Luke Skywalker", "population": "200000"},
-        {"name": "C-3PO", "population": "200000"}
+      mockPeople = [
+        {"name": "Luke Skywalker"},
+        {"name": "C-3PO"}
       ];
-      window.fetch = jest.fn().mockImplementation(() => {
-        Promise.resolve({
-          status: 200,
-          json: () => {
-            Promise.resolve(mockPeople)
-          }
-        })
-      })
-      wrapper = shallow(
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockPeople)
+      }));
+      wrapper = shallow (
         <App />
       )
     });
-    it.skip('returns a finalPerson with a homeworld', () => {
+
+    it.skip('should add homeworld and population to each person object', async () => {
+
       //setup
-      const getHomeWorld = []
-    })
 
-    it.skip('should display a film that scrolls on page load' , () => {
+      mockData = {results: [{"name": "Luke Skywalker"},
+      {"name": "C-3PO"}]}
+      let fetchData = {name: 'Nabooo', population: 500000};
+      let resultData = [{name: 'Peaches', homeworld: 'Nabooo', population: 500000}, {name: 'Estes', homeworld: 'Nabooo', population: 500000}];
+      window.fetch = jest.fn(() => (Promise.resolve(fetchData)))
 
-    })
+      //execution
+
+      const people = await wrapper.instance().getHomeworld(mockData)
+
+      //expectation
+
+      expect(people).toEqual(resultData)
+    });
   });
+
+    describe('componentDidMount', () => {
+      let wrapper;
+      let mockFilm;
+      beforeEach(() => {
+        mockFilm = {
+          title: 'The Force Awakens', 
+          year: '2015-12-11', 
+          crawl: 'Luke Skywalker has vanished. In his absence, the sinisterFIRST ORDER has risen fromthe ashes of the Empire and will not rest until Skywalker, the last Jedi,has been destroyed. With the support of the REPUBLIC, General Leia Organa leads a brave RESISTANCE. She is desperate to find her brother Luke and gain his help in restoring peace and justice to the galaxy. Leia has sent her most daring pilot on a secret mission to Jakku, where an old ally has discovered a clue to Luke\'s whereabouts....'};
+        })
+
+        wrapper = shallow (
+          <App />
+        )
+      
+        it('should set the state with current film', () => {
+          
+        })
+        
+        it('calls fetch with correct url', () => {
+          
+        })
+        it.skip('should display a film that scrolls on page load' , () => {
+              wrapper.instance().componentDidMount();
+              expect(wrapper.getCrawlFilmInfo).toEqual(mockFilm);
+        })
+  
+      })
 })
