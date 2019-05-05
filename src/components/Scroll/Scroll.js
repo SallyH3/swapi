@@ -13,8 +13,8 @@ export default function Scroll ({ crawl, title, year }) {
   )
 }
 Scroll.propTypes = {
-  crawl: PropTypes.object,
-  title: PropTypes.object,
-  year: PropTypes.object
+  crawl: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.string
 
 }
