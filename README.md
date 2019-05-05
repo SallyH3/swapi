@@ -26,11 +26,11 @@ npm test
 
 ### Wireframe:
 
-
+![20190429_164316](https://user-images.githubusercontent.com/40863560/57186374-27e7ce00-6e9b-11e9-8aec-06cff006d11f.jpg)
 
 ### Finished project desktop view:
 
-
+![2019-05-04 18 29 48](https://user-images.githubusercontent.com/40863560/57186343-bb6ccf00-6e9a-11e9-9880-110c088ae00d.gif)
 
 ## Technologies used:
 
