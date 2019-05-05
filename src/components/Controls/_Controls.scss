@@ -4,7 +4,8 @@
 }
 
 .btn {
-  background-color: $controls-btn-color;
+  background-color: transparent;
+  border: .1rem solid $btn-border-color;
   border-radius: .6rem;
   color: $controls-btn-text-color;
   cursor: pointer;
@@ -16,6 +17,9 @@
   padding: .6rem;
   text-align: center;
   width: 6rem;
+  &:hover {
+    background-color: $controls-active;
+  }
 }
 
 //active class for button
