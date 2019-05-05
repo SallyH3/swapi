@@ -12,5 +12,10 @@ describe('Controls', () => {
 
   it ('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it.skip('renders the people button', () => {
+    let peopleButton = wrapper.find('.btn people').simulate('click');
+    expect(peopleButton.exists()).toEqual(true);
   })
 })
