@@ -19,5 +19,8 @@
 }
 
 .people-loader {
-  color: #FFF;
+  color: $loader-color;
+  font-family: $loader-font;
+  font-size: 2rem;
+  letter-spacing: .1rem;
 }
