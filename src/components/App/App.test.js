@@ -76,7 +76,44 @@ describe('App', () => {
       })
 
     });
+
+    it.skip('should invoke getSpecies', () => {
+      window.fetch = jest.fn(() => (Promise.resolve(mockPeople)))
+      let getSpecies = jest.fn();
+      wrapper.instance().displayPeople();
+      expect(getSpecies).toBeCalled();
+    })
   });
+
+  describe('getSpecies', () => {
+    let wrapper;
+    let mockData;
+    let getSpecies;
+    let fetchSpecies;
+    let finalSpecies;
+    beforeEach(() => {
+      fetchSpecies = {name: 'human'};
+      finalSpecies = [{name: 'Fred', species: 'human', category:'person'}, {name: 'Cindy', species: 'human', category:'person'}];
+      mockData = [{name: 'Peaches'}, {name: 'Estes'}];
+      getSpecies = jest.fn();
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(fetchSpecies)
+      }));
+      wrapper = shallow (
+        <App />
+      )
+    });
+
+    it.skip('should add species to each object in the people array', () => {
+      //execution
+  const result =  wrapper.instance().getSpecies(mockData)
+  //expectation
+  expect(result).toEqual(finalSpecies)
+    })
+  })
+
   describe('getHomeWorld', () => {
     let wrapper;
     let mockPeople;
@@ -123,23 +160,43 @@ describe('App', () => {
           title: 'The Force Awakens', 
           year: '2015-12-11', 
           crawl: 'Luke Skywalker has vanished. In his absence, the sinisterFIRST ORDER has risen fromthe ashes of the Empire and will not rest until Skywalker, the last Jedi,has been destroyed. With the support of the REPUBLIC, General Leia Organa leads a brave RESISTANCE. She is desperate to find her brother Luke and gain his help in restoring peace and justice to the galaxy. Leia has sent her most daring pilot on a secret mission to Jakku, where an old ally has discovered a clue to Luke\'s whereabouts....'};
+            window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+              status: 200,
+              json: () => Promise.resolve(mockFilm)
+            }));
+            wrapper = shallow (
+              <App />
+            )
+        });
+      
+        it.skip('calls fetch with correct url', () => {
+          //setup
+          const expectedUrl = 'https://swapi.co/api/films/7'
+          //execution
+  
+          wrapper.instance().componentDidMount()
+  
+          //expectation
+  
+          expect(fetch).toHaveBeenCalledWith(expectedUrl)
         })
 
-        wrapper = shallow (
-          <App />
-        )
-      
+
         it('should set the state with current film', () => {
-          
+          //execution
+      wrapper.setState({ currentFilm: mockFilm})
+      wrapper.instance().componentDidMount().then()
+
+      //expectation
+
+      expect(wrapper.state('currentFilm')).toEqual(mockFilm)
+
         })
         
-        it('calls fetch with correct url', () => {
-          
-        })
         it.skip('should display a film that scrolls on page load' , () => {
               wrapper.instance().componentDidMount();
               expect(wrapper.getCrawlFilmInfo).toEqual(mockFilm);
         })
   
-      })
+      });
 })

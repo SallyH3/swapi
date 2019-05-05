@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './_App.scss';
 import Favorites from '../Favorites/Favorites';
 import Header from '../Header/Header';
@@ -37,7 +38,7 @@ class App extends Component {
     this.setState({isLoading: true})
     const randomFilm = this.getRandomFilm();
     const url = `https://swapi.co/api/films/${ randomFilm }`;
-    fetch(url)
+    return fetch(url)
       .then(response => response.json())
       .then(film => this.getCrawlFilmInfo(film))
       .then(currentFilm => this.setState({ currentFilm, isLoading: false }))
