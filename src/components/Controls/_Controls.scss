@@ -18,6 +18,19 @@
   width: 6rem;
 }
 
+//active class for button
+
+input {
+  background: none;
+}
+
+input:active,
+input:focus{
+  background: $controls-active;
+  border: .1rem solid white;
+  outline: none;
+}
+
 .people-loader {
   color: $loader-color;
   font-family: $loader-font;
