@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Scroll ({ crawl, title, year }) {
   return (
@@ -10,4 +11,10 @@ export default function Scroll ({ crawl, title, year }) {
       </section>
     </section>
   )
+}
+Scroll.propTypes = {
+  crawl: PropTypes.object,
+  title: PropTypes.object,
+  year: PropTypes.object
+
 }

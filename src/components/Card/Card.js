@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = ({ people }) => {
   const peopleInfo = people.map(person => {
@@ -16,6 +17,10 @@ return (
     <article className = 'people-info-container'>{ peopleInfo }</article>
   </section>
 )
+}
+
+Card.propTypes = {
+  people: PropTypes.array
 }
 
 export default Card;
