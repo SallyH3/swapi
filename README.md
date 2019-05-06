@@ -30,11 +30,11 @@ npm test
 
 ### Finished project desktop view:
 
-![2019-05-04 18 29 48](https://user-images.githubusercontent.com/40863560/57186343-bb6ccf00-6e9a-11e9-9880-110c088ae00d.gif)
+![2019-05-05 20 49 08](https://user-images.githubusercontent.com/40863560/57204818-4fac6400-6f77-11e9-9277-c8b1d239eaa3.gif)
 
 ## Technologies used:
 
-* fetch API/StarWars API
+* fetch API
 * ReactJS 
 * JSX 
 * SCSS
