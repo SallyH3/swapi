@@ -30,7 +30,7 @@ npm test
 
 ### Finished project desktop view:
 
-![2019-05-05 20 49 08](https://user-images.githubusercontent.com/40863560/57204818-4fac6400-6f77-11e9-9277-c8b1d239eaa3.gif)
+![2019-05-05 20 52 58](https://user-images.githubusercontent.com/40863560/57204897-f7299680-6f77-11e9-86f6-9e964f2b8325.gif)
 
 ## Technologies used:
 
